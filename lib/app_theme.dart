@@ -59,3 +59,52 @@ ThemeData appTheme() {
     ),
   );
 }
+
+ThemeData appDarkTheme() {
+  return ThemeData(
+    colorScheme: ColorScheme.dark(
+      primary: Colors.green[800]!, // Slightly darker than light theme
+      onPrimary: Colors.white,
+      secondary: Colors.purple[700]!,
+      onSecondary: Colors.white,
+      surface: Colors.grey[850]!,
+      onSurface: Colors.white,
+      background: Colors.grey[900]!,
+      onBackground: Colors.white,
+    ),
+    brightness: Brightness.dark,
+    primaryColor: Colors.green[800],
+    scaffoldBackgroundColor: Colors.grey[900],
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.green[800],
+      titleTextStyle: TextStyle(
+        fontFamily: 'MontaguSlab',
+        fontSize: 24.0,
+        color: Colors.white,
+      ),
+      iconTheme: IconThemeData(
+        color: Colors.white,
+      ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(Colors.purple[700]!),
+        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        textStyle: MaterialStateProperty.all<TextStyle>(
+          TextStyle(
+            fontFamily: 'MontaguSlab',
+            fontSize: 24.0,
+          ),
+        ),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+        ),
+      ),
+    ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: Colors.purple[700],
+    ),
+  );
+}

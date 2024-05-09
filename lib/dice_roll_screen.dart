@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
+
+import 'audio_manager.dart';
 
 class DiceRollScreen extends StatefulWidget {
   final String diceType;
@@ -25,6 +26,8 @@ class _DiceRollScreenState extends State<DiceRollScreen> {
     setState(() {
       diceFaceNumber = Random().nextInt(widget.maxNumber) + 1;
     });
+    // Play the dice roll sound
+    AudioManager.playDiceRollSound();
   }
 
   @override
@@ -32,62 +35,62 @@ class _DiceRollScreenState extends State<DiceRollScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        title: Text(
-          'Roll a ${widget.diceType}',
-          style: TextStyle(
-            fontFamily: 'MontaguSlab',
-            fontSize: 24.0,
-            color: Theme.of(context).colorScheme.onPrimary,
-          ),
-        ),
+        title: Text('Roll a ${widget.diceType}'),
         backgroundColor: Theme.of(context).colorScheme.primary,
         leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Theme.of(context).colorScheme.onPrimary,
-          ),
-          onPressed: () {
-            Navigator.pop(context); // Navigate back to the previous screen
-          },
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                Image.asset(widget.diceImage),
-                Positioned(
-                  bottom: MediaQuery.of(context).size.height * 0.1,
-                  child: Text(
-                    diceFaceNumber.toString(),
-                    style: TextStyle(
-                      fontSize: 128, // Adjust the size accordingly
-                      color: Theme.of(context).colorScheme.onSecondary,
-                      fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        // Make the body scrollable
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: AspectRatio(
+                  aspectRatio: 1, // Keep the image square
+                  child: Container(
+                    width: MediaQuery.of(context).size.width *
+                        0.6, // Dynamically size based on screen width
+                    child: Stack(
+                      alignment:
+                          Alignment.center, // Center the text on the image
+                      children: [
+                        Image.asset(
+                          widget.diceImage,
+                          fit: BoxFit.contain,
+                        ),
+                        Text(
+                          diceFaceNumber.toString(),
+                          style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width *
+                                0.2, // Make font size responsive
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white, // Ensure the text is visible
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ],
-            ),
-            ElevatedButton(
-              style: ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll<Color>(
-                    Theme.of(context).colorScheme.secondary),
               ),
-              onPressed: rollDice,
-              child: Text(
-                'ROLL',
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onSecondary,
-                  fontSize: 24.0,
-                  fontFamily: 'MontaguSlab',
+              SizedBox(height: 20), // Space between image and button
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                      Theme.of(context).colorScheme.secondary),
+                ),
+                onPressed: rollDice,
+                child: Text(
+                  'ROLL',
+                  style: TextStyle(fontSize: 24.0),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
