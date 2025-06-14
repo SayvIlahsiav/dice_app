@@ -42,6 +42,9 @@
 |:-----------------------------------------:|:-----------------------------------------:|:-------------------------------------------:|
 | ![D12](assets/screenshots/d12_screen.png) | ![D20](assets/screenshots/d20_screen.png) | ![D100](assets/screenshots/d100_screen.png) |
 
+## APK
+- [dice_app_v0.1.0-pre.apk](https://github.com/SayvIlahsiav/dice_app/releases/download/v0.1.0-pre/dice_app_v0.1.0-pre.apk)
+
 ## Installation
 
 To run this app locally, follow these steps:
