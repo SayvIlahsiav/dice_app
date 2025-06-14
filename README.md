@@ -14,11 +14,33 @@
 
 ## Screenshots
 
-### Home Screen
-![Home Screen](assets/screenshots/home_screen.png)
+> Explore the look and feel of **Roll That Dice** across themes and dice types.
 
-### Dice Roll Screen
-![Dice Roll Screen](assets/screenshots/dice_roll_screen.png)
+### 🚀 App Flow
+
+|                  Splash Screen                  |                   Home (Light)                    |                        Home (Dark)                         |
+|:-----------------------------------------------:|:-------------------------------------------------:|:----------------------------------------------------------:|
+| ![Splash](assets/screenshots/splash_screen.png) | ![Home Light](assets/screenshots/home_screen.png) | ![Home Dark](assets/screenshots/home_screen_dark_mode.png) |
+
+---
+
+### 🎞️ Live Demo
+
+<p align="center">
+  <img src="assets/screenshots/dice_rolling.gif" alt="Dice Rolling Demo" width="80%"/>
+</p>
+
+---
+
+### 🎲 Dice Screens
+
+|                   D4                    |                   D6                    |                   D8                    |                    D10                    |
+|:---------------------------------------:|:---------------------------------------:|:---------------------------------------:|:-----------------------------------------:|
+| ![D4](assets/screenshots/d4_screen.png) | ![D6](assets/screenshots/d5_screen.png) | ![D8](assets/screenshots/d8_screen.png) | ![D10](assets/screenshots/d10_screen.png) |
+
+|                    D12                    |                    D20                    |                    D100                     |
+|:-----------------------------------------:|:-----------------------------------------:|:-------------------------------------------:|
+| ![D12](assets/screenshots/d12_screen.png) | ![D20](assets/screenshots/d20_screen.png) | ![D100](assets/screenshots/d100_screen.png) |
 
 ## Installation
 
